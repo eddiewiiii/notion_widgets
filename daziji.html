@@ -1,13 +1,20 @@
 <html lang="en" theme=""><head>
 <body>
-    <span class="box"></span>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
 <div class="wrap">
     <h1 style="color: #000000; font-size: 38px">The digital workspace and life centre for Eddie.</h1>
     <p class="text_destroy" style="color: rgb(85, 85, 85); font-size: 16px; display: block;">Plan, organize, and manage life and work in one space.</p>
-  </div>
+  </div>   
+ <div id="typed-strings">
+        <p>The digital<strong>workspace and life centre </strong>for Eddie</p>
+    </div>
+    <span id="typed"></span>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 200,//打字的速度
+  });
 </script>
 
   </html>
