@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>艾迪Typewriter Effect</title>
+    <title>艾迪的Typewriter Effect</title>
     <style>
         #typewriter-container {
             text-align: left; /* 文字左对齐 */
@@ -45,7 +45,7 @@
                 if (index1 < text1.length) {
                     textContainer1.innerHTML += text1.charAt(index1);
                     index1++;
-                    setTimeout(typeWriterLine1, 40); // 调整打字速度，单位是毫秒
+                    setTimeout(typeWriterLine1, 45); // 调整打字速度，单位是毫秒
                 } else {
                     // 第一行文字打印完毕后，开始第二行文字打印
                     setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
@@ -57,7 +57,7 @@
                 if (index2 < text2.length) {
                     textContainer2.innerHTML += text2.charAt(index2);
                     index2++;
-                    setTimeout(typeWriterLine2, 40); // 调整打字速度，单位是毫秒
+                    setTimeout(typeWriterLine2, 45); // 调整打字速度，单位是毫秒
                 }
             }
 
