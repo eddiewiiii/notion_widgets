@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typewriter Effect 11</title>
+    <title>Typewriter Effect</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: transparent; /* 背景透明 */
-        }
-
         #typewriter-container {
             text-align: left; /* 文字左对齐 */
             margin: 100px;
         }
 
-        #line1,
-        #line2 {
-            font-size: 30px; /* 统一字体大小 */
+        #line1 {
+            font-size: 48px;
+            font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
-            opacity: 0; /* 初始时透明 */
             display: inline-block;
-            vertical-align: top; /* 修正垂直对齐问题 */
+        }
+
+        #line2 {
+            font-size: 26px;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            opacity: 0; /* 初始时透明 */
         }
     </style>
 </head>
@@ -42,27 +41,27 @@
             const textContainer1 = document.getElementById('line1');
             const textContainer2 = document.getElementById('line2');
 
-            function typeWriter() {
+            function typeWriterLine1() {
                 if (index1 < text1.length) {
                     textContainer1.innerHTML += text1.charAt(index1);
                     index1++;
-                }
-                if (index2 < text2.length) {
-                    textContainer2.innerHTML += text2.charAt(index2);
-                    index2++;
-                }
-
-                if (index1 < text1.length || index2 < text2.length) {
-                    setTimeout(function() {
-                        requestAnimationFrame(typeWriter);
-                    }, 50); // 调整打字速度，单位是毫秒
+                    setTimeout(typeWriterLine1, 40); // 调整打字速度，单位是毫秒
+                } else {
+                    // 第一行文字打印完毕后，开始第二行文字打印
+                    setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
                 }
             }
 
-            setTimeout(function() {
-                textContainer1.style.opacity = 1;  // 显示第一行文字
-                typeWriter();
-            }, 1000); // 延迟启动文字打印
+            function typeWriterLine2() {
+                textContainer2.style.opacity = 1; // 显示第二行文字
+                if (index2 < text2.length) {
+                    textContainer2.innerHTML += text2.charAt(index2);
+                    index2++;
+                    setTimeout(typeWriterLine2, 40); // 调整打字速度，单位是毫秒
+                }
+            }
+
+            typeWriterLine1();
         });
     </script>
 </body>
