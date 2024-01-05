@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typewriter Effect 1.0</title>
+    <title>Typewriter Effect 2.0</title>
     <style>
         body {
             margin: 0;
@@ -48,7 +48,7 @@
                     setTimeout(typeWriterLine1, 30); // 加快第一行文字的打字速度
                 } else {
                     textContainer2.style.opacity = 1;  // 显示第二行文字
-                    setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
+                    typeWriterLine2();
                 }
             }
 
