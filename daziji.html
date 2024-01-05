@@ -10,15 +10,31 @@
             margin: 100px;
         }
 
-        #typewriter-text {
-            font-size: 24px;
-            border-right: 2px solid black;
+        #line1 {
+            font-size: 48px;
+            font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 5s steps(50) infinite;
+            animation: typing-line1 5s steps(50) infinite;
         }
 
-        @keyframes typing {
+        #line2 {
+            font-size: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing-line2 5s steps(50) infinite;
+        }
+
+        @keyframes typing-line1 {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes typing-line2 {
             from {
                 width: 0;
             }
@@ -30,33 +46,24 @@
 </head>
 <body>
     <div id="typewriter-container">
-        <p id="typewriter-text"></p>
+        <p id="line1">The digital workspace and life centre for Eddie.</p>
+        <p id="line2"></p>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const text1 = "The digital workspace and life centre for Eddie.";
             const text2 = "Plan, organize, and manage life and work in one space.";
             let index = 0;
-            const textContainer = document.getElementById('typewriter-text');
+            const textContainer2 = document.getElementById('line2');
 
-            function typeWriter() {
-                if (index < text1.length) {
-                    textContainer.innerHTML += text1.charAt(index);
-                } else if (index === text1.length) {
-                    // Add line break after the first line
-                    textContainer.innerHTML += "<br>";
-                } else if (index < text1.length + text2.length + 1) {
-                    textContainer.innerHTML += text2.charAt(index - text1.length - 1);
-                }
-
-                index++;
-
-                if (index <= text1.length + text2.length) {
-                    setTimeout(typeWriter, 50); // 调整打字速度，单位是毫秒
+            function typeWriterLine2() {
+                if (index < text2.length) {
+                    textContainer2.innerHTML += text2.charAt(index);
+                    index++;
+                    setTimeout(typeWriterLine2, 50); // 调整打字速度，单位是毫秒
                 }
             }
 
-            typeWriter();
+            setTimeout(typeWriterLine2, 5500); // 在第一行文字打印完毕后延迟启动第二行文字打印
         });
     </script>
 </body>
