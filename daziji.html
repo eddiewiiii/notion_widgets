@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eddie Typewriter Effect</title>
+    <title>Resizable Typewriter Effect</title>
     <style>
         #typewriter-container {
             position: absolute;
@@ -24,8 +24,9 @@
             font-size: 2vw;
             white-space: nowrap;
             overflow: hidden;
-            display: inline-block;
+            display: block; /* 将 display 属性改为 block */
             opacity: 0;
+            margin-top: 0; /* 控制第二行文字的垂直间距 */
         }
     </style>
 </head>
@@ -49,7 +50,6 @@
                     index1++;
                     setTimeout(typeWriterLine1, 40);
                 } else {
-                    // 第一行文字打印完毕后，清空第二行文字容器内容
                     textContainer2.innerHTML = "";
                     setTimeout(typeWriterLine2, 1000);
                 }
