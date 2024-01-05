@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typewriter Effect</title>
+    <title>艾迪 Typewriter Effect</title>
     <style>
         body {
             margin: 0;
@@ -22,7 +22,6 @@
             font-size: 30px; /* 统一字体大小 */
             white-space: nowrap;
             overflow: hidden;
-            display: inline-block;
             opacity: 0; /* 初始时透明 */
         }
     </style>
@@ -56,7 +55,9 @@
                 if (index2 < text2.length) {
                     textContainer2.innerHTML += text2.charAt(index2);
                     index2++;
-                    setTimeout(typeWriterLine2, 50); // 调整打字速度，单位是毫秒
+                    if (index2 < text2.length) {
+                        setTimeout(typeWriterLine2, 50); // 调整打字速度，单位是毫秒
+                    }
                 }
             }
 
