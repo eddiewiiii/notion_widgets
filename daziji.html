@@ -7,13 +7,13 @@
     <style>
         #typewriter-container {
             position: absolute;
-            top: 5%; /* 调整与顶部的距离为百分比 */
-            left: 5%; /* 调整与左侧的距离为百分比 */
-            text-align: left; /* 文字左对齐 */
+            top: 5%;
+            left: 5%;
+            text-align: left;
         }
 
         #line1 {
-            font-size: 4vw; /* 相对于视窗宽度的百分比 */
+            font-size: 4vw;
             font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
@@ -21,11 +21,11 @@
         }
 
         #line2 {
-            font-size: 2vw; /* 相对于视窗宽度的百分比 */
+            font-size: 2vw;
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
-            opacity: 0; /* 初始时透明 */
+            opacity: 0;
         }
     </style>
 </head>
@@ -49,6 +49,8 @@
                     index1++;
                     setTimeout(typeWriterLine1, 40);
                 } else {
+                    // 第一行文字打印完毕后，清空第二行文字容器内容
+                    textContainer2.innerHTML = "";
                     setTimeout(typeWriterLine2, 1000);
                 }
             }
