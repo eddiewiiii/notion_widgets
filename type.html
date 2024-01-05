@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable Typewriter Effect</title>
+    <style>
+        body {
+            background-color: rgba(255, 255, 255, 0); /* 设置整个页面的透明背景色 */
+            margin: 0; /* 移除默认的页面边距 */
+        }
+
+        #typewriter-container {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            text-align: left;
+        }
+
+        #line1 {
+            font-size: 4vw;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        #line2 {
+            font-size: 2vw;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            opacity: 0;
+            margin-top: 0;
+            background-color: rgba(255, 255, 255, 0); /* 设置透明背景色 */
+        }
+    </style>
+</head>
+<body>
+    <div id="typewriter-container">
+        <p id="line1"></p>
+        <p id="line2"></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const text1 = "The digital workspace and life centre for Eddie.";
+            const text2 = "Plan, organize, and manage life and work in one space.";
+            let index1 = 0;
+            let index2 = 0;
+            const textContainer1 = document.getElementById('line1');
+            const textContainer2 = document.getElementById('line2');
+
+            function typeWriterLine1() {
+                if (index1 < text1.length) {
+                    textContainer1.innerHTML += text1.charAt(index1);
+                    index1++;
+                    setTimeout(typeWriterLine1, 40);
+                } else {
+                    textContainer2.innerHTML = "";
+                    setTimeout(typeWriterLine2, 1000);
+                }
+            }
+
+            function typeWriterLine2() {
+                textContainer2.style.opacity = 1;
+                if (index2 < text2.length) {
+                    textContainer2.innerHTML += text2.charAt(index2);
+                    index2++;
+                    setTimeout(typeWriterLine2, 40);
+                }
+            }
+
+            typeWriterLine1();
+        });
+    </script>
+</body>
+</html>
