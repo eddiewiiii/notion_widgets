@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eddie Typewriter Effect</title>
+    <title>Typewriter Effect</title>
     <style>
         #typewriter-container {
             text-align: left; /* 文字左对齐 */
-            margin: 8%; /* 调整边距为百分比 */
+            margin: 100px;
         }
 
         #line1 {
-            font-size: 4vw; /* 相对于视窗宽度的百分比 */
+            font-size: 38px;
             font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
@@ -19,7 +19,7 @@
         }
 
         #line2 {
-            font-size: 2vw; /* 相对于视窗宽度的百分比 */
+            font-size: 16px;
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
@@ -45,18 +45,19 @@
                 if (index1 < text1.length) {
                     textContainer1.innerHTML += text1.charAt(index1);
                     index1++;
-                    setTimeout(typeWriterLine1, 40);
+                    setTimeout(typeWriterLine1, 40); // 调整打字速度，单位是毫秒
                 } else {
-                    setTimeout(typeWriterLine2, 1000);
+                    // 第一行文字打印完毕后，开始第二行文字打印
+                    setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
                 }
             }
 
             function typeWriterLine2() {
-                textContainer2.style.opacity = 1;
+                textContainer2.style.opacity = 1; // 显示第二行文字
                 if (index2 < text2.length) {
                     textContainer2.innerHTML += text2.charAt(index2);
                     index2++;
-                    setTimeout(typeWriterLine2, 40);
+                    setTimeout(typeWriterLine2, 40); // 调整打字速度，单位是毫秒
                 }
             }
 
@@ -65,3 +66,4 @@
     </script>
 </body>
 </html>
+
