@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resizable Typewriter Effect</title>
+    <title>Typewriter Effect</title>
     <style>
         body {
-            background-color: rgba(255, 255, 255, 0); /* 设置整个页面的透明背景色 */
+            background-color: rgba(0, 0, 0, 0); /* 设置整个页面的透明背景色 */
             margin: 0; /* 移除默认的页面边距 */
         }
 
         #typewriter-container {
             position: absolute;
-            top: 5%;
-            left: 5%;
+            top: 4%;
+            left: 3%;
             text-align: left;
         }
 
@@ -26,13 +26,13 @@
         }
 
         #line2 {
-            font-size: 2vw;
+            font-size: 3vw;
             white-space: nowrap;
             overflow: hidden;
             display: block;
             opacity: 0;
             margin-top: 0;
-            background-color: rgba(255, 255, 255, 0); /* 设置透明背景色 */
+            background-color: rgba(0, 0, 0, 0); /* 设置透明背景色 */
         }
     </style>
 </head>
@@ -64,14 +64,3 @@
             function typeWriterLine2() {
                 textContainer2.style.opacity = 1;
                 if (index2 < text2.length) {
-                    textContainer2.innerHTML += text2.charAt(index2);
-                    index2++;
-                    setTimeout(typeWriterLine2, 40);
-                }
-            }
-
-            typeWriterLine1();
-        });
-    </script>
-</body>
-</html>
