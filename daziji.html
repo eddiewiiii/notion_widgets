@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typewriter Effect</title>
-    <style>
-        #typewriter-container {
-            text-align: left; /* 文字左对齐 */
-            margin: 100px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typewriter Effect</title>
+<style>
+#typewriter-container {
+text-align: center;
+margin: 100px;
+}
 
-        #line1 {
-            font-size: 48px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-        }
+#line1 {
+font-size: 48px;
+font-weight: bold;
+white-space: nowrap;
+overflow: hidden;
+display: inline-block;
+}
 
-        #line2 {
-            font-size: 26px;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-            opacity: 0; /* 初始时透明 */
-        }
-    </style>
+#line2 {
+font-size: 26px;
+white-space: nowrap;
+overflow: hidden;
+display: inline-block;
+opacity: 0; /* 初始时透明 */
+}
+</style>
 </head>
 <body>
-    <div id="typewriter-container">
-        <p id="line1"></p>
-        <p id="line2"></p>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const text1 = "The digital workspace and life centre for Eddie.";
-            const text2 = "Plan, organize, and manage life and work in one space.";
-            let index1 = 0;
-            let index2 = 0;
-            const textContainer1 = document.getElementById('line1');
-            const textContainer2 = document.getElementById('line2');
+<div id="typewriter-container">
+<p id="line1"></p>
+<p id="line2"></p>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const text1 = "The digital workspace and life centre for Eddie.";
+const text2 = "Plan, organize, and manage life and work in one space.";
+let index1 = 0;
+let index2 = 0;
+const textContainer1 = document.getElementById('line1');
+const textContainer2 = document.getElementById('line2');
 
-            function typeWriterLine1() {
-                if (index1 < text1.length) {
-                    textContainer1.innerHTML += text1.charAt(index1);
-                    index1++;
-                    setTimeout(typeWriterLine1, 40); // 调整打字速度，单位是毫秒
-                } else {
-                    // 第一行文字打印完毕后，开始第二行文字打印
-                    setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
-                }
-            }
+function typeWriterLine1() {
+if (index1 < text1.length) {
+textContainer1.innerHTML += text1.charAt(index1);
+index1++;
+setTimeout(typeWriterLine1, 40); // 调整打字速度，单位是毫秒
+} else {
+// 第一行文字打印完毕后，开始第二行文字打印
+setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
+}
+}
 
-            function typeWriterLine2() {
-                textContainer2.style.opacity = 1; // 显示第二行文字
-                if (index2 < text2.length) {
-                    textContainer2.innerHTML += text2.charAt(index2);
-                    index2++;
-                    setTimeout(typeWriterLine2, 40); // 调整打字速度，单位是毫秒
-                }
-            }
-
-            typeWriterLine1();
-        });
-    </script>
-</body>
-</html>
+function typeWriterLine2() {
+textContainer2.style.opacity = 1; // 显示第二行文字
+if (index2 < text2.length) {
+textContainer2.innerHTML += text2.charAt(index2);
+index2++;
+setTimeout(typeWriterLine2, 40); // 调整打字速度，单位是毫秒
+}
