@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>艾迪 TypeWriter Effect</title>
+    <title>Typewriter Effect</title>
     <style>
         #typewriter-container {
             text-align: center;
@@ -15,32 +15,12 @@
             font-weight: bold;
             white-space: nowrap;
             overflow: hidden;
-            animation: typing-line1 5s steps(50) infinite;
         }
 
         #line2 {
             font-size: 30px;
             white-space: nowrap;
             overflow: hidden;
-            animation: typing-line2 5s steps(50) infinite;
-        }
-
-        @keyframes typing-line1 {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes typing-line2 {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -55,15 +35,20 @@
             let index = 0;
             const textContainer2 = document.getElementById('line2');
 
+            // 显示第一行文字
+            document.getElementById('line1').innerHTML = text2;
+
             function typeWriterLine2() {
                 if (index < text2.length) {
                     textContainer2.innerHTML += text2.charAt(index);
                     index++;
-                    setTimeout(typeWriterLine2, 50); // 调整打字速度，单位是毫秒
+                    if (index < text2.length) {
+                        setTimeout(typeWriterLine2, 50); // 调整打字速度，单位是毫秒
+                    }
                 }
             }
 
-            setTimeout(typeWriterLine2, 5500); // 在第一行文字打印完毕后延迟启动第二行文字打印
+            setTimeout(typeWriterLine2, 50); // 稍微延迟启动第二行文字打印，确保第一行文字显示完毕
         });
     </script>
 </body>
