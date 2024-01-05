@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typewriter Effect</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: transparent; /* 背景透明 */
+        }
+
         #typewriter-container {
-            text-align: center;
+            text-align: left; /* 文字左对齐 */
             margin: 100px;
         }
 
-        #line1 {
-            font-size: 48px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-        }
-
+        #line1,
         #line2 {
-            font-size: 30px;
+            font-size: 30px; /* 统一字体大小 */
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
-            opacity: 0;  /* 初始时透明 */
+            opacity: 0; /* 初始时透明 */
         }
     </style>
 </head>
@@ -45,9 +45,8 @@
                 if (index1 < text1.length) {
                     textContainer1.innerHTML += text1.charAt(index1);
                     index1++;
-                    setTimeout(typeWriterLine1, 50); // 调整打字速度，单位是毫秒
+                    setTimeout(typeWriterLine1, 30); // 加快第一行文字的打字速度
                 } else {
-                    // 第一行文字打印完毕后，开始第二行文字打印
                     setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
                 }
             }
