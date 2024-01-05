@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>艾迪 Typewriter Effect</title>
+    <title>Typewriter Effect</title>
     <style>
         body {
             margin: 0;
@@ -23,6 +23,7 @@
             white-space: nowrap;
             overflow: hidden;
             opacity: 0; /* 初始时透明 */
+            display: inline-block;
         }
     </style>
 </head>
@@ -46,12 +47,12 @@
                     index1++;
                     setTimeout(typeWriterLine1, 30); // 加快第一行文字的打字速度
                 } else {
+                    textContainer2.style.opacity = 1;  // 显示第二行文字
                     setTimeout(typeWriterLine2, 1000); // 延迟启动第二行文字打印
                 }
             }
 
             function typeWriterLine2() {
-                textContainer2.style.opacity = 1;  // 显示第二行文字
                 if (index2 < text2.length) {
                     textContainer2.innerHTML += text2.charAt(index2);
                     index2++;
