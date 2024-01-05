@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typewriter Effect 1.0</title>
+    <title>Typewriter Effect2.0</title>
     <style>
         body {
             margin: 0;
@@ -19,7 +19,7 @@
 
         #line1,
         #line2 {
-            font-size: 30px; /* 统一字体大小 */
+            font-size: 26px; /* 统一字体大小 */
             white-space: nowrap;
             overflow: hidden;
             opacity: 0; /* 初始时透明 */
@@ -45,12 +45,10 @@
                 if (index1 < text1.length) {
                     textContainer1.innerHTML += text1.charAt(index1);
                     index1++;
-                    setTimeout(typeWriterLine1, 30); // 加快第一行文字的打字速度
+                    setTimeout(typeWriterLine1, 45); // 加快第一行文字的打字速度
                 } else {
-                    setTimeout(function() {
-                        textContainer2.style.opacity = 1;  // 显示第二行文字
-                        typeWriterLine2();
-                    }, 1000); // 延迟启动第二行文字打印
+                    textContainer2.style.opacity = 1;  // 显示第二行文字
+                    typeWriterLine2();
                 }
             }
 
@@ -59,7 +57,7 @@
                     textContainer2.innerHTML += text2.charAt(index2);
                     index2++;
                     if (index2 < text2.length) {
-                        setTimeout(typeWriterLine2, 50); // 调整打字速度，单位是毫秒
+                        setTimeout(typeWriterLine2, 45); // 调整打字速度，单位是毫秒
                     }
                 }
             }
