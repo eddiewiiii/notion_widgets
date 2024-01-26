@@ -88,11 +88,13 @@
                 const diceValue = rollDice();
                 alert(`Dice: ${diceValue}`);
 
-                movePlayer(player1, player1Position, diceValue);
-                movePlayer(player2, player2Position, diceValue);
-
-                player1Position = player1Position + diceValue;
-                player2Position = player2Position + diceValue;
+                if (player1Position <= player2Position) {
+                    movePlayer(player1, player1Position, diceValue);
+                    player1Position += diceValue;
+                } else {
+                    movePlayer(player2, player2Position, diceValue);
+                    player2Position += diceValue;
+                }
             });
 
             renderPlayer(player1, player1Position);
