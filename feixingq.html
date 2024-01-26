@@ -6,13 +6,19 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
         #game-board {
             display: grid;
-            grid-template-columns: repeat(10, 50px);
-            grid-template-rows: repeat(10, 50px);
+            grid-template-columns: repeat(10, 40px);
+            grid-template-rows: repeat(10, 40px);
             gap: 1px;
-            margin: 20px auto;
+            margin-top: 20px;
             background-color: #eee;
         }
         .cell {
@@ -32,6 +38,12 @@
         .player1 { background-color: red; }
         .player2 { background-color: blue; }
         .finish { background-color: green; }
+        #roll-button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -63,8 +75,8 @@
             function renderPlayer(player, position) {
                 const row = Math.floor(position / 10);
                 const col = position % 10;
-                player.style.top = `${row * 50}px`;
-                player.style.left = `${col * 50}px`;
+                player.style.top = `${row * 40}px`;
+                player.style.left = `${col * 40}px`;
             }
 
             function rollDice() {
