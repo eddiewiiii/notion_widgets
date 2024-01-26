@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 1px;
+            margin: 20px auto;
+            background-color: #eee;
+        }
+        .cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            position: relative;
+        }
+        .player {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .player1 { background-color: red; }
+        .player2 { background-color: blue; }
+        .finish { background-color: green; }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const board = document.getElementById('game-board');
+            const player1 = createPlayer('player1');
+            const player2 = createPlayer('player2');
+            const finishCell = createFinishCell();
+
+            board.appendChild(player1);
+            board.appendChild(player2);
+            board.appendChild(finishCell);
+
+            let player1Position = 0;
+            let player2Position = 0;
+
+            function createPlayer(className) {
+                const player = document.createElement('div');
+                player.className = `player ${className}`;
+                return player;
+            }
+
+            function createFinishCell() {
+                const finishCell = document.createElement('div');
+                finishCell.className = 'cell finish';
+                finishCell.innerText = 'Finish';
+                return finishCell;
+            }
+
+            function renderPlayer(player, position) {
+                const row = Math.floor(position / 10);
+                const col = position % 10;
+                player.style.top = `${row * 50}px`;
+                player.style.left = `${col * 50}px`;
+            }
+
+            function rollDice() {
+                return Math.floor(Math.random() * 6) + 1;
+            }
+
+            function movePlayer(player, position, steps) {
+                const newPosition = position + steps;
+
+                if (newPosition < 100) {
+                    position = newPosition;
+                    renderPlayer(player, position);
+
+                    if (position === 99) {
+                        alert(`${player.className} wins!`);
+                    }
+                }
+            }
+
+            document.getElementById('roll-button').addEventListener('click', function () {
+                const diceValue = rollDice();
+                alert(`Dice: ${diceValue}`);
+
+                movePlayer(player1, player1Position, diceValue);
+                movePlayer(player2, player2Position, diceValue);
+
+                player1Position = player1Position + diceValue;
+                player2Position = player2Position + diceValue;
+            });
+
+            renderPlayer(player1, player1Position);
+            renderPlayer(player2, player2Position);
+        });
+    </script>
+</head>
+<body>
+    <div id="game-board"></div>
+    <button id="roll-button">Roll Dice</button>
+</body>
+</html>
