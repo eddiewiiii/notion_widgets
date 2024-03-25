@@ -3,25 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Calendar Date and Time</title>
     <style>
+        /* Base styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
         }
-        p {
-            font-size: 18px;
-            margin: 10px;
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        time {
-            font-weight: bold;
-            color: #0074D9;
+        /* Date and time input styles */
+        .date-time-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        /* Button styles */
+        .submit-button {
+            background-color: #007aff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
         }
     </style>
-    <title>Date and Time Example</title>
 </head>
 <body>
-    <p>Today is <time datetime="2024-03-25">March 25, 2024</time>.</p>
-    <p>It is currently <time datetime="14:36">2:36 PM</time>.</p>
+    <div class="container">
+        <h1>iOS Calendar Date and Time</h1>
+        <form>
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" class="date-time-input">
+            <label for="event-time">Event Time:</label>
+            <input type="time" id="event-time" class="date-time-input">
+            <button type="submit" class="submit-button">Add Event</button>
+        </form>
+    </div>
 </body>
 </html>
