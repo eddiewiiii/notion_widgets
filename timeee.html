@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Design</title>
     <style>
-        body {
+        .calendar {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+            color: white;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .today {
-            background-color: #ff9900;
-            color: #ffffff;
-            font-size: 24px; /* Adjust font size as needed */
-            padding: 10px; /* Add padding for better visibility */
-            border-radius: 50%; /* Make it circular */
+
+        .month {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .date {
+            font-size: 72px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .day {
+            font-size: 24px;
+        }
+
+        .dots {
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-    <h1>📅 Calendar</h1>
-    <p class="today">🗓️ March 31, 2024 (Thursday) 🌟</p>
+    <div class="calendar">
+        <div class="month">MAR</div>
+        <div class="date">25</div>
+        <div class="day">Monday</div>
+        <div class="dots">...</div>
+    </div>
 </body>
 </html>
