@@ -3,58 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS Calendar Date and Time</title>
     <style>
-        /* 基本样式 */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #000000;
         }
-        /* 日期和时间输入样式 */
-        .date-time-input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        /* 按钮样式 */
-        .submit-button {
-            background-color: #007aff;
+        .today {
+            background-color: #ff9900;
             color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .submit-button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>iOS Calendar Date and Time</h1>
-        <form>
-            <label for="event-date">Event Date:</label>
-            <input type="date" id="event-date" class="date-time-input">
-            <label for="event-time">Event Time:</label>
-            <input type="time" id="event-time" class="date-time-input">
-            <button type="submit" class="submit-button">Add Event</button>
-        </form>
-    </div>
+    <h1>Calendar</h1>
+    <table>
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="today">25, March</td>
+            <td>1</td>
+        </tr>
+        <!-- Add more rows for other weeks -->
+    </table>
 </body>
 </html>
