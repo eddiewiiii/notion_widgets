@@ -1,71 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eddie Typewriter Effect</title>
+    <title>程序员的浪漫</title>
     <style>
-        #typewriter-container {
-            position: absolute;
-            top: 4%;
-            left: 3%;
-            text-align: left;
-        }
-
-        #line1 {
-            font-size: 4vw;
-            font-weight: bold;
-            white-space: nowrap;
+        #main {
+            width: 1100px;
+            height: 680px;
+            position: relative;
             overflow: hidden;
+        }
+        #wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            color: #ff0000;
+        }
+        .cursor {
             display: inline-block;
+            margin-left: 5px;
+            animation: blink 1s step-start 0s infinite;
         }
-
-        #line2 {
-            font-size: 3vw;
-            white-space: nowrap;
-            overflow: hidden;
-            display: block; /* 将 display 属性改为 block */
-            opacity: 0;
-            margin-top: 0; /* 控制第二行文字的垂直间距 */
+        @keyframes blink {
+            50% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div id="typewriter-container">
-        <p id="line1"></p>
-        <p id="line2"></p>
+    <div id="main">
+        <div id="wrap">
+            <div id="code"><span class="text"></span><span class="cursor"></span></div>
+        </div>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const text1 = "The digital workspace and life centre for Eddie.";
-            const text2 = "Plan, organize, and manage life and work in one space.";
-            let index1 = 0;
-            let index2 = 0;
-            const textContainer1 = document.getElementById('line1');
-            const textContainer2 = document.getElementById('line2');
+        // JavaScript代码
+        const textElement = document.querySelector('.text');
+        const textToType = '你的出现，占满了我的视线，我愿跟随你永远自从遇见你那天开始，我的心就像跌进深深的湖水，推不开躲不掉，心一直想往你身上靠只要你愿意，当你失落失意的时候，需要一个肩膊的时候，告诉我，我会立即出现之前我不相信一见钟情，但是见到你的那一刻，我否定了我的看法。我的心为你沦陷，从此只为你跳动有一种爱的感觉，叫感同身受。有一种爱的默契，叫心有灵犀。有一种爱的承诺，叫天长地久有一种爱的方式，是执子之手,与子携老莎士比亚说过：爱情是一种甜蜜的痛苦，但是我愿意忍受这种痛苦莎士比亚还说过，世界上没有比服侍爱情更快乐的了，你愿不愿意享受这种快乐？I LOVE YOU-- ★ --';
+        let currentIndex = 0;
 
-            function typeWriterLine1() {
-                if (index1 < text1.length) {
-                    textContainer1.innerHTML += text1.charAt(index1);
-                    index1++;
-                    setTimeout(typeWriterLine1, 40);
-                } else {
-                    textContainer2.innerHTML = "";
-                    setTimeout(typeWriterLine2, 1000);
-                }
+        function typeCharacter() {
+            if (currentIndex < textToType.length) {
+                const character = textToType[currentIndex];
+                textElement.innerHTML += character; // 添加字符到文本元素
+                currentIndex++;
+                setTimeout(typeCharacter, 100); // 调整速度
             }
+        }
 
-            function typeWriterLine2() {
-                textContainer2.style.opacity = 1;
-                if (index2 < text2.length) {
-                    textContainer2.innerHTML += text2.charAt(index2);
-                    index2++;
-                    setTimeout(typeWriterLine2, 40);
-                }
+        function deleteCharacter() {
+            if (textElement.innerHTML.length > 0) {
+                textElement.innerHTML = textElement.innerHTML.slice(0, -1);
+                setTimeout(deleteCharacter, 100); // 调整速度
             }
+        }
 
-            typeWriterLine1();
-        });
+        // 开始打字
+        typeCharacter();
     </script>
 </body>
 </html>
